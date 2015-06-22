@@ -10,7 +10,7 @@ var LoggerSchema = new Schema({
     name          : String,
     message       : String,
     location      : String,
-    line          : String,
+    position      : String,
     func          : String,
     UserAgent     : String
 });

@@ -37,14 +37,13 @@ var logger = (function (w) {
 
             _url = _url.join('&');
             img.src = loghost + _url + defaultInfo;
-            // console.log(img.src);
         };
 
-    w.onerror = function (msg, URI, ln) {
+    w.onerror = function (msg, URI, ln, colno) {
         // wrap our unknown error condition in an object
         var error = new Error(msg);
         error.location = URI; // add custom property
-        error.line = ln;
+        error.position = "line = " + ln + " colno = " + colno;
         logger.log(error);
         return true; // stop the yellow triangle
     };
